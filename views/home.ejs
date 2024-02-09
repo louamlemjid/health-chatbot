@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #generatedText {
+            white-space: pre-wrap;
+        }
+    </style>
+    
+
+    <p>generated Text</p>
+    <div >
+        <p id="generatedText"></p>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const generatedText = `<%- generatedText%>`;
+            const element = document.getElementById("generatedText");
+            
+            let index = 0;
+            const intervalId = setInterval(function() {
+                if (index < generatedText.length) {
+                    element.innerHTML += generatedText[index];
+                    index++;
+                } else {
+                    clearInterval(intervalId);
+                }
+            }, 10); // Adjust the interval to control the speed of typing
+        });
+    </script>
+    <form action="/text" method="post">
+        <input type="text" name="text">
+        <button type="submit">generate</button>
+        <span id="welcome"></span>
+        <script>
+            const span=document.getElementById('welcome')
+            let j=0;
+            const welcome="aslema khouya lbehya marhbe bik, kifeh najem naawnek :)"
+            const interval = setInterval(function() {
+                if (j < welcome.length) {
+                    span.innerHTML += welcome[j];
+                    j++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, 30);
+        </script>
+    </form>
+</body>
+</html>
