@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/home.css">
+    <title>ENNAFSYA</title>
 </head>
 <body>
     <style>
@@ -11,12 +13,34 @@
             white-space: pre-wrap;
         }
     </style>
-    
-
-    <p>generated Text</p>
-    <div >
-        <p id="generatedText"></p>
+    <nav>
+        <img src="/logo.png" alt="" width="40">
+        <div class="title">
+            <h1>ENNAFSYA</h1>
+            <h6>LA SANTE, LA VIE</h6>
+        </div>
+        <p class="login">Login</p>
+    </nav><br>
+    <div class="welcomebloc">
+        <span id="welcome"></span>
+    <script>
+        const span=document.getElementById('welcome')
+        let j=0;
+        const welcome="aslema khouya lbehya marhbe bik, kifeh najem naawnek :)"
+        const interval = setInterval(function() {
+            if (j < welcome.length) {
+                span.innerHTML += welcome[j];
+                j++;
+            } else {
+                clearInterval(interval);
+            }
+        }, 30);
+    </script>
     </div>
+    <br><br>
+    <div class="textbox" >
+        <p id="generatedText"></p>
+    </div><br>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -34,23 +58,32 @@
             }, 10); // Adjust the interval to control the speed of typing
         });
     </script>
+    
     <form action="/text" method="post">
         <input type="text" name="text">
-        <button type="submit">generate</button>
-        <span id="welcome"></span>
-        <script>
-            const span=document.getElementById('welcome')
-            let j=0;
-            const welcome="aslema khouya lbehya marhbe bik, kifeh najem naawnek :)"
-            const interval = setInterval(function() {
-                if (j < welcome.length) {
-                    span.innerHTML += welcome[j];
-                    j++;
-                } else {
-                    clearInterval(interval);
-                }
-            }, 30);
-        </script>
+        <button type="submit">
+            <img src="/icons8-play-48.png" alt="" width="20">
+        </button>
+        
+        
     </form>
+    <br>
+    <div  class="bloc">
+        <p>Ecrivez ce que vous voulez</p>
+    </div>
+    <br>
+    <footer >
+        <hr>
+        <div class="footer">
+            <p>© 2024 ENNAFSYA, Inc</p>
+            <img src="/logo.png" alt="" width="40">
+            <div class="contact">
+                <p>home</p>
+                <p>by louam lemjid</p>
+                <p>et mouhamed sfar</p>
+            </div>
+        </div>
+    </footer>
+    <br>
 </body>
 </html>
