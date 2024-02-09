@@ -82,7 +82,7 @@ footer{
 }
 .footer{
     display: grid;
-    grid-template-columns: 40% 20% 40%;
+    grid-template-columns: 40% 10% 40%;
     gap: 10px;
 }
 .contact{
