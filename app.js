@@ -38,7 +38,7 @@ app.post("/text", async (req, res) => {
             data: {
                 providers: "openai",
                 text: req.body.text,
-                chatbot_global_action: "health assist",
+                chatbot_global_action: "social media post generator",
                 previous_history: [],
                 temperature: 1, // Adjust temperature to control randomness of generated text
                 fallback_providers: "",
