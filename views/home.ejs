@@ -23,37 +23,47 @@
     </nav><br>
     <div class="welcomebloc">
         <span id="welcome"></span>
-    <script>
-        const span=document.getElementById('welcome')
-        let j=0;
-        const welcome="aslema khouya lbehya marhbe bik, kifeh najem naawnek :)"
-        const interval = setInterval(function() {
-            if (j < welcome.length) {
-                span.innerHTML += welcome[j];
-                j++;
-            } else {
-                clearInterval(interval);
-            }
-        }, 30);
-    </script>
+        
+        <% if (typeof tag !== 'undefined' && tag !== null && tag !== '') { %>
+            <span>Vous avez choisi la tag  <%= tag %></span>
+        <% } else { %>
+            <script>
+                const span=document.getElementById('welcome')
+                let j=0;
+                
+                const welcome="aslema khouya lbehya marhbe bik, kifeh najem naawnek :)" 
+                const interval = setInterval(function() {
+                    if (j < welcome.length) {
+                        span.innerHTML += welcome[j];
+                        j++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 30);
+            </script>
+        <% } %>
     </div>
     <br><br>
+    
     <div class="textbox" >
         <p id="generatedText"></p>
     </div><br>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const generatedText = `<%- generatedText%>`;
             const element = document.getElementById("generatedText");
+            const image=document.getElementById("gen")
             
             let index = 0;
             const intervalId = setInterval(function() {
                 if (index < generatedText.length) {
+                    image.src="/icons8-stop-30.png";
                     element.innerHTML += generatedText[index];
                     index++;
                 } else {
                     clearInterval(intervalId);
+                    image.src="/icons8-play-48.png";
                 }
             }, 10); // Adjust the interval to control the speed of typing
         });
@@ -62,12 +72,18 @@
     <form action="/text" method="post">
         <input type="text" name="text" placeholder="je suis fatigué">
         <button type="submit">
-            <img src="/icons8-play-48.png" alt="" width="20">
+            <img src="/icons8-play-48.png" alt="" width="20" id="gen">
         </button>
         
         
     </form>
     <br>
+    <form action="/tag" method="post" style="width: 50%;">
+        <input type="tag" name="tag" placeholder="generateur des posts facebook">
+        <button type="submit" >
+            <img src="/icons8-play-48.png" alt="" width="20">
+        </button>
+    </form><br>
     <div  class="bloc">
         <p>Ecrivez ce que vous voulez</p>
     </div>
