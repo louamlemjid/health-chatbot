@@ -46,7 +46,6 @@ app.post("/tag",(req,res)=>{
 })
 app.post("/text", async (req, res) => {
     try {
-<<<<<<< HEAD
         req.session.loading=true;
         if(req.session.tag){
             const options = {
@@ -66,27 +65,6 @@ app.post("/text", async (req, res) => {
             };
             const response = await axios.request(options);
             console.log(response.data.openai.generated_text);
-=======
-        const options = {
-            method: "POST",
-            url: "https://api.edenai.run/v2/text/chat",
-            headers: {
-                authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZjgyYmMzMDItNDA5OC00MDgyLWI4NmQtODI3ZDgwNjMzZWY0IiwidHlwZSI6ImFwaV90b2tlbiJ9.h0fV0VOjjaP4jFPHpCSyVCCubXUgHdYwKdiMBORKSs8",
-            },
-            data: {
-                providers: "openai",
-                text: req.body.text,
-                chatbot_global_action: "social media post generator",
-                previous_history: [],
-                temperature: 1, // Adjust temperature to control randomness of generated text
-                fallback_providers: "",
-            },
-        };
-
-        const response = await axios.request(options);
-        console.log(response.data.openai.generated_text);
->>>>>>> 5df1c3a5484e8eda05fc12f284efff3c3985a614
-
         req.session.generatedText = response.data.openai.generated_text;
         }else{
             const options = {
